@@ -35,7 +35,7 @@ conda create -n drcp python=3.8
 #python 3.7 might not support diffusers for diffusion process
 conda activate drcp
 
-conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.7 -c pytorch -c nvidia
 
 pip install -r requirements.txt
 
