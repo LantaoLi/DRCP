@@ -1,7 +1,7 @@
 # DRCP
 Basically everything of DRCP for cooperative perception.
 
-This repo is a realization of DRCP paper on DAIR-V2X dataset and OPV2V dataset, which refined and improved **efficient cross-modal fusion** between **LiDAR and Camera** sensory data for **cooperative perception** tasks based on RG-Attn [GitHub](https:github.com/LantaoLi/RG-Attn/tree/main). 
+This repo is a realization of DRCP paper on DAIR-V2X dataset and OPV2V dataset, which refined and improved **efficient cross-modal fusion** between **LiDAR and Camera** sensory data for **cooperative perception** tasks based on RG-Attn [GitHub](https:github.com/LantaoLi/RG-Attn). 
 
 DRCP is built on opencood and HEAL, most of the conda environment and dataset configurations are the same except introducing diffusers module requiring Python 3.8 environment (as diffuser module is not available for Python 3.7).
 
@@ -28,14 +28,14 @@ Create a `dataset` folder under any folder path you like and put your data there
 
 ## Installation
 ### Step 1: Conda Env
-Since python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade your existing conda environment (from HEAL project or similar existing environments configurations) to python=3.8 with diffusers module installed and make sure pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.7.
+Since python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade your existing conda environment (from HEAL project or similar existing environments configurations) to python=3.8 with diffusers module installed and make sure pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8.
 
 ```bash
 conda create -n drcp python=3.8
 #python 3.7 might not support diffusers for diffusion process
 conda activate drcp
 
-conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.7 -c pytorch -c nvidia
+conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8 -c pytorch -c nvidia
 
 pip install -r requirements.txt
 
