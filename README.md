@@ -28,7 +28,7 @@ Create a `dataset` folder under any folder path you like and put your data there
 
 ## Installation
 ### Step 1: Conda Env
-If opencood or HEAL conda environment is already setup on your machine, then trying those environments with our project is totally fine. There might be some modules missing or conflicting, but not going to be too messy. Basically, following [HEAL](https://github.com/yifanlu0227/HEAL) to configure the environment is enough for running this project.
+Since python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade your existing conda environment (from HEAL project or similar existing environments configurations) to python=3.8 with diffusers module installed and make sure pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.7.
 
 ```bash
 conda create -n drcp python=3.8
@@ -68,7 +68,7 @@ python opencood/utils/setup.py build_ext --inplace
 
 ``` bash
 pip install git+https://github.com/klintan/pypcd.git
-#if RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED, change the numpy_pc2.py line 301 dtype=float
+#you might need to change the numpy_pc2.py line 301 from dtype=np.float to dtype=np.float32
 ```
 
 ---
