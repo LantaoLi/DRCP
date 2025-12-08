@@ -1,13 +1,13 @@
 # DRCP
-Basically all the code on DRCP for cooperative perception
+Basically everything of DRCP for cooperative perception.
 
 This repo is a realization of DRCP paper on DAIR-V2X dataset and OPV2V dataset, which refined and improved **efficient cross-modal fusion** between **LiDAR and Camera** sensory data for **cooperative perception** tasks based on RG-Attn [GitHub](https:github.com/LantaoLi/RG-Attn/tree/main). 
 
-DRCP is built on opencood and HEAL, most of the conda environment and dataset configurations are the same except introducing diffuser module for diffusion realization in Python 3.8 environment (as diffuser module is not available for Python 3.7).
+DRCP is built on opencood and HEAL, most of the conda environment and dataset configurations are the same except introducing diffusers module requiring Python 3.8 environment (as diffuser module is not available for Python 3.7).
 
 ## Data Preparation
 - DAIR-V2X-C: Download the data from [this page](https://thudair.baai.ac.cn/index). We use complemented annotation, so please also follow the instruction of [this page](https://siheng-chen.github.io/dataset/dair-v2x-c-complemented/).
-- [Optional] OPV2V: Please refer to [this repo](https://github.com/DerrickXuNu/OpenCOOD). Please note that our current release does not contain the code for training or inference on OPV2V (update is under preparation), but feel free to realize it by yourself.
+- [Optional] OPV2V: Please refer to [this repo](https://github.com/DerrickXuNu/OpenCOOD).
 
 Create a `dataset` folder under any folder path you like and put your data there. Make the naming and structure consistent with the following and change the dataset paths accordingly in the config.yaml (the first few lines) for training or testing purpose.
 ```
@@ -31,9 +31,9 @@ Create a `dataset` folder under any folder path you like and put your data there
 If opencood or HEAL conda environment is already setup on your machine, then trying those environments with our project is totally fine. There might be some modules missing or conflicting, but not going to be too messy. Basically, following [HEAL](https://github.com/yifanlu0227/HEAL) to configure the environment is enough for running this project.
 
 ```bash
-conda create -n rgattn python=3.8
-#both python 3.7 and python 3.8 (recommend) are fine on our machine
-conda activate rgattn
+conda create -n drcp python=3.8
+#python 3.7 might not support diffusers for diffusion process
+conda activate drcp
 
 conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
 
@@ -68,6 +68,7 @@ python opencood/utils/setup.py build_ext --inplace
 
 ``` bash
 pip install git+https://github.com/klintan/pypcd.git
+#if RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED, change the numpy_pc2.py line 301 dtype=float
 ```
 
 ---
