@@ -1,0 +1,4 @@
+# ninja log v5
+0	9241	1737626762267077844	/home/scrl/14t/CoDiff/opencood/models/sub_modules/ops/build/temp.linux-x86_64-cpython-38/home/scrl/14t/CoDiff/opencood/models/sub_modules/ops/src/cpu/ms_deform_attn_cpu.o	1a2dcf9644038c6d
+1	23036	1737626776071215779	/home/scrl/14t/CoDiff/opencood/models/sub_modules/ops/build/temp.linux-x86_64-cpython-38/home/scrl/14t/CoDiff/opencood/models/sub_modules/ops/src/cuda/ms_deform_attn_cuda.o	edc7134cfdaed7cd
+1	29852	1737626782867283879	/home/scrl/14t/CoDiff/opencood/models/sub_modules/ops/build/temp.linux-x86_64-cpython-38/home/scrl/14t/CoDiff/opencood/models/sub_modules/ops/src/vision.o	ce4013549c4a7dba
