@@ -3,7 +3,7 @@ Basically everything of DRCP for cooperative perception.
 
 This repo is a realization of DRCP paper on DAIR-V2X dataset and OPV2V dataset, which refined and improved **efficient cross-modal fusion** between **LiDAR and Camera** sensory data for **cooperative perception** tasks based on [RG-Attn](https://github.com/LantaoLi/RG-Attn). 
 
-DRCP is built upon **OpenCood** and **HEAL**, while adopting a diffusion-enhanced architecture. Compared to HEAL-style environments, DRCP requires **Python ≥ 3.8**, as the diffusers module does not support Python 3.7.
+DRCP is built upon **OpenCood** and **HEAL**, while adopting a **diffusion-enhanced architecture**. Compared to HEAL-style environments, DRCP requires **Python ≥ 3.8**, as the diffusers module does not support Python 3.7.
 
 ## Data Preparation
 - DAIR-V2X-C: Download the data from [this page](https://thudair.baai.ac.cn/index). We use complemented annotation, so please also follow the instruction of [this page](https://siheng-chen.github.io/dataset/dair-v2x-c-complemented/).
