@@ -28,7 +28,7 @@ Create a `dataset` folder under any folder path you like and put your data there
 
 ## Installation
 ### Step 1: Conda Env
-Since Python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade existing conda environment (from HEAL project or similar existing opencood environments configurations) to **Python 3.8** with diffusers module installed and recommended PyTorch stack as `pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8`.
+Since Python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade existing conda environment (from HEAL project or similar existing opencood environments configurations) to **Python 3.8** with `diffusers==0.30.3` module installed and recommended PyTorch stack as `pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8`.
 
 ```bash
 conda create -n drcp python=3.8
