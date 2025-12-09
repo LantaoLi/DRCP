@@ -72,27 +72,26 @@ pip install git+https://github.com/klintan/pypcd.git
 ```
 
 ---
-### Train by yourself
+## Training
+### Stage 1 (Non-diffusion model training)
 To train a non-diffusion model (non_dif or prgaf), please use following command:
 ```python
 python opencood/tools/train.py --model_dir ${CHECKPOINT_FOLDER} -y config.yaml
 ```
 
-The corresponding CHECKPOINT_FOLDER is already configured as /DRCP_root/opencood/logs/dairv2x/non_dif,  /DRCP_root/opencood/logs/dairv2x/prgaf and /DRCP_root/opencood/logs/opv2v/nodif.
+The corresponding CHECKPOINT_FOLDER are already configured as `/DRCP_root/opencood/logs/dairv2x/non_dif`,  `/DRCP_root/opencood/logs/dairv2x/prgaf` and `/DRCP_root/opencood/logs/opv2v/nodif`.
 
-After the non-diffusion model trained, move the best model checkpoints to the diffusion training folders such as /DRCP_root/opencood/logs/dairv2x/dif or /DRCP_root/opencood/logs/opv2v/dif. The second stage training for diffusion-based models can then be continued as:
+### Stage 1 (Train with diffusion)
+After the non-diffusion model trained, move the best model checkpoints to the diffusion training directories such as `/DRCP_root/opencood/logs/dairv2x/dif` or `/DRCP_root/opencood/logs/opv2v/dif`. The second stage training for diffusion-based models can then be continued as:
 
-For dair-v2x
 ```python
+# For dair-v2x
 python opencood/tools/diffusion_partial_train.py --model_dir ${CHECKPOINT_FOLDER} -y config_dif2e-4.yaml
-```
-
-For opv2v
-```python
+# For opv2v
 python opencood/tools/diffusion_partial_train.py --model_dir ${CHECKPOINT_FOLDER} -y dif_config.yaml
 ```
 
-### Test
+## Testing
 For non-diffusion model
 ```python
 python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER}
@@ -100,7 +99,7 @@ python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER}
 
 For diffusion-enabled model
 ```python
-python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER} --diffuse True -y ${Diffusion-enabled .yaml files}
+python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER} --diffuse True -y <Diffusion-enabled .yaml files>
 ```
 
 ## Benchmark Checkpoints
