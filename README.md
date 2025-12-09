@@ -74,7 +74,7 @@ pip install git+https://github.com/klintan/pypcd.git
 ---
 ## Training
 ### Stage 1 (Non-diffusion model training)
-To train a non-diffusion model (non_dif or prgaf), please use following command:
+To train a non-diffusion model (non_dif for DRCP or prgaf for RG-Attn), please use following command:
 ```python
 python opencood/tools/train.py --model_dir ${CHECKPOINT_FOLDER} -y config.yaml
 ```
