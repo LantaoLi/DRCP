@@ -104,11 +104,10 @@ python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER} --diffuse Tr
 ```
 
 ## Benchmark Checkpoints
-We also provide checkpoint files at [DRCP's Huggingface Hub](https://huggingface.co/LLT007/RG-Attn/tree/main).
-Please note that 21.pth is for PTP and 23.pth is for CoS-CoCo, put them in their corresponding folders for direct evaluations.
+We also provide checkpoint files at [DRCP's Huggingface Hub](https://huggingface.co/LLT007/DRCP).
 
 ## Thanks
-We appreciate the great efforts and foundation works from UCLA, SJTU, Tsinghua and all other research facilities on cooperative perception.
+We appreciate the great efforts and foundation works from UCLA, SJTU, Tsinghua, TUM and all other research facilities on cooperative perception.
 
 ## Citation
 ```
