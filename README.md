@@ -3,7 +3,7 @@ Basically everything of DRCP for cooperative perception.
 
 This repo is a realization of DRCP paper on DAIR-V2X dataset and OPV2V dataset, which refined and improved **efficient cross-modal fusion** between **LiDAR and Camera** sensory data for **cooperative perception** tasks based on [RG-Attn](https://github.com/LantaoLi/RG-Attn). 
 
-DRCP is built on opencood and HEAL, most of the conda environment and dataset configurations are the same except introducing diffusers module requiring Python 3.8 environment (as diffuser module is not available for Python 3.7).
+DRCP is built on opencood and HEAL, most of the conda environment and dataset configurations are the same except introducing diffusers module requiring Python 3.8 environment (as diffusers module is not available for Python 3.7).
 
 ## Data Preparation
 - DAIR-V2X-C: Download the data from [this page](https://thudair.baai.ac.cn/index). We use complemented annotation, so please also follow the instruction of [this page](https://siheng-chen.github.io/dataset/dair-v2x-c-complemented/).
@@ -28,7 +28,7 @@ Create a `dataset` folder under any folder path you like and put your data there
 
 ## Installation
 ### Step 1: Conda Env
-Since python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade your existing conda environment (from HEAL project or similar existing environments configurations) to python=3.8 with diffusers module installed and make sure pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8.
+Since python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade your existing conda environment (from HEAL project or similar existing opencood environments configurations) to python=3.8 with diffusers module installed and make sure pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8.
 
 ```bash
 conda create -n drcp python=3.8
@@ -73,19 +73,38 @@ pip install git+https://github.com/klintan/pypcd.git
 
 ---
 ### Train by yourself
+To train a non-diffusion model (non_dif or prgaf), please use following command:
 ```python
 python opencood/tools/train.py --model_dir ${CHECKPOINT_FOLDER} -y config.yaml
 ```
 
-The corresponding CHECKPOINT_FOLDER is already configured as /RGAttn_root/opencood/logs/CP_Dair_Final/Dair_Clean_PTP and /RGAttn_root/opencood/logs/CP_Dair_Final/Dair_Clean_CoSCoCo.
+The corresponding CHECKPOINT_FOLDER is already configured as /DRCP_root/opencood/logs/dairv2x/non_dif,  /DRCP_root/opencood/logs/dairv2x/prgaf and /DRCP_root/opencood/logs/opv2v/nodif.
+
+After the non-diffusion model trained, move the best model checkpoints to the diffusion training folders such as /DRCP_root/opencood/logs/dairv2x/dif or /DRCP_root/opencood/logs/opv2v/dif. The second stage training for diffusion-based models can then be continued as:
+
+For dair-v2x
+```python
+python opencood/tools/diffusion_partial_train.py --model_dir ${CHECKPOINT_FOLDER} -y config_dif2e-4.yaml
+```
+
+For opv2v
+```python
+python opencood/tools/diffusion_partial_train.py --model_dir ${CHECKPOINT_FOLDER} -y dif_config.yaml
+```
 
 ### Test
+For non-diffusion model
 ```python
 python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER}
 ```
 
+For diffusion-enabled model
+```python
+python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER} --diffuse True -y ${Diffusion-enabled .yaml files}
+```
+
 ## Benchmark Checkpoints
-We also provide checkpoint files at [RG-Attn's Huggingface Hub](https://huggingface.co/LLT007/RG-Attn/tree/main).
+We also provide checkpoint files at [DRCP's Huggingface Hub](https://huggingface.co/LLT007/RG-Attn/tree/main).
 Please note that 21.pth is for PTP and 23.pth is for CoS-CoCo, put them in their corresponding folders for direct evaluations.
 
 ## Thanks
@@ -93,10 +112,10 @@ We appreciate the great efforts and foundation works from UCLA, SJTU, Tsinghua a
 
 ## Citation
 ```
-@article{li2025rg,
-  title={RG-Attn: Radian Glue Attention for Multi-modality Multi-agent Cooperative Perception},
-  author={Li, Lantao and Yang, Kang and Zhang, Wenqi and Wang, Xiaoxue and Sun, Chen},
-  journal={arXiv preprint arXiv:2501.16803},
+@article{li2025drcp,
+  title={DRCP: Diffusion on Reinforced Cooperative Perception for Perceiving Beyond Limits},
+  author={Li, Lantao and Yang, Kang and Song, Rui and Sun, Chen},
+  journal={arXiv preprint arXiv:2509.24903},
   year={2025}
 }
 ```
