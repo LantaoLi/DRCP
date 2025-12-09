@@ -3,7 +3,7 @@ Basically everything of DRCP for cooperative perception.
 
 This repo is a realization of DRCP paper on DAIR-V2X dataset and OPV2V dataset, which refined and improved **efficient cross-modal fusion** between **LiDAR and Camera** sensory data for **cooperative perception** tasks based on [RG-Attn](https://github.com/LantaoLi/RG-Attn). 
 
-DRCP is built on opencood and HEAL, most of the conda environment and dataset configurations are the same except introducing diffusers module requiring Python 3.8 environment (as diffusers module is not available for Python 3.7).
+DRCP is built upon **OpenCood** and **HEAL**, while adopting a diffusion-enhanced architecture. Compared to HEAL-style environments, DRCP requires **Python ≥ 3.8**, as the diffusers module does not support Python 3.7.
 
 ## Data Preparation
 - DAIR-V2X-C: Download the data from [this page](https://thudair.baai.ac.cn/index). We use complemented annotation, so please also follow the instruction of [this page](https://siheng-chen.github.io/dataset/dair-v2x-c-complemented/).
@@ -28,7 +28,7 @@ Create a `dataset` folder under any folder path you like and put your data there
 
 ## Installation
 ### Step 1: Conda Env
-Since python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade your existing conda environment (from HEAL project or similar existing opencood environments configurations) to python=3.8 with diffusers module installed and make sure pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8.
+Since Python 3.7 is not suitable for running drcp, please follow the following commands strictly to configure the environment, or upgrade existing conda environment (from HEAL project or similar existing opencood environments configurations) to **Python 3.8** with diffusers module installed and recommended PyTorch stack as `pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cudatoolkit=11.8`.
 
 ```bash
 conda create -n drcp python=3.8
