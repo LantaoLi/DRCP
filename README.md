@@ -81,7 +81,7 @@ python opencood/tools/train.py --model_dir ${CHECKPOINT_FOLDER} -y config.yaml
 
 The corresponding CHECKPOINT_FOLDER are already configured as `/DRCP_root/opencood/logs/dairv2x/non_dif`,  `/DRCP_root/opencood/logs/dairv2x/prgaf` and `/DRCP_root/opencood/logs/opv2v/nodif`.
 
-### Stage 1 (Train with diffusion)
+### Stage 2 (Train with diffusion)
 After the non-diffusion model trained, move the best model checkpoints to the diffusion training directories such as `/DRCP_root/opencood/logs/dairv2x/dif` or `/DRCP_root/opencood/logs/opv2v/dif`. The second stage training for diffusion-based models can then be continued as:
 
 `For dair-v2x`
